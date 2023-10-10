@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  # Express.js (Node.js backend)
+  express:
+    build:
+      context: ./backend
+    ports:
+      - "3001:3001"
+
+  # React (Frontend)
+  react:
+    build:
+      context: ./frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - express
